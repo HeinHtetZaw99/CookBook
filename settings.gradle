@@ -1,0 +1,2 @@
+include ':app', ':network', ':domain', ':data', ':cache', ':buildSrc', ':appbase'
+rootProject.name='CookBook'
