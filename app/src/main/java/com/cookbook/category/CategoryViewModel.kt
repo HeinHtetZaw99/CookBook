@@ -1,4 +1,4 @@
-package com.cookbook.feature
+package com.cookbook.category
 
 import androidx.lifecycle.MutableLiveData
 import com.appbase.BaseViewModel

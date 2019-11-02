@@ -8,6 +8,7 @@ import com.cache.datasource.MealsCacheDataSourceImpl
 import com.cache.room.CookBookDB
 import com.data.datasource.cache.CategoryCacheDataSource
 import com.data.datasource.cache.MealCacheDataSource
+import com.data.datasource.cache.MealSnapShotCacheDataSource
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -29,7 +30,7 @@ abstract class RoomModule {
     @Binds
     abstract fun mealSnapshotCacheDataSource(
         mealSnapShotCacheDataSourceImpl: MealSnapShotCacheDataSourceImpl
-    ): MealSnapShotCacheDataSourceImpl
+    ): MealSnapShotCacheDataSource
 
     @Module
     internal object Providers {

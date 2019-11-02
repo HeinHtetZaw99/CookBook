@@ -48,6 +48,9 @@ dependencies {
     kapt Dagger.compiler
     kapt Dagger.android_processor
 
+    implementation Glide.core
+    kapt Glide.compiler
+
     implementation Retrofit.okhttp
     implementation ReactiveX.rxjava
     implementation ReactiveX.rxKotlin

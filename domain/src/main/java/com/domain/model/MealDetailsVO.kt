@@ -12,5 +12,6 @@ data class MealDetailsVO(
     var dateModified: String? = null,
     var drinkAlternate: String? = null,
     var source: String? = null,
+    var ingredientList : List<IngredientsVO>? = null ,
     var ingredientsWithMeasurement: HashMap<String, String>? = null
 )

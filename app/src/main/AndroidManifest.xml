@@ -3,7 +3,8 @@
     xmlns:dist="http://schemas.android.com/apk/distribution"
     package="com.cookbook">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <dist:module dist:instant="true" />
 
     <application
@@ -14,7 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".feature.MainActivity">
+        <activity android:name=".mealsdetails.MealsDetailsActivity"></activity>
+        <activity android:name=".mealsmenu.MenuActivity" />
+        <activity android:name=".category.CategoryActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -29,6 +29,7 @@
             android:scaleType="fitXY" />
 
         <FrameLayout
+            android:id="@+id/overLayLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/background_overlay" />
@@ -36,12 +37,10 @@
 
         <TextView
             android:id="@+id/categoryTitle"
-            style="@style/BoldN"
+            style="@style/BoldXL"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_gravity="center"
-
             android:padding="@dimen/margin_medium"
             android:text="@{categoryData.categoryName}"
             android:textColor="@color/white" />

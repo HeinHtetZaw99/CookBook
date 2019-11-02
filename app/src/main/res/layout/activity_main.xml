@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".feature.MainActivity">
+    tools:context=".category.CategoryActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolBar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
+        app:title="Choose Category"
+        app:titleTextColor="@color/white"
         android:background="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,9 +21,10 @@
         android:id="@+id/categoryRv"
         android:layout_width="match_parent"
         android:background="@color/white"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="?actionBarSize"
         app:layout_constraintTop_toBottomOf="@id/toolBar" />
 
     <include

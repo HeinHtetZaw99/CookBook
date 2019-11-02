@@ -1,4 +1,4 @@
-package com.cookbook.feature
+package com.cookbook.category
 
 import androidx.lifecycle.ViewModel
 import com.appbase.di.viewModel.ViewModelKey
@@ -11,7 +11,7 @@ import dagger.multibindings.IntoMap
 abstract class CategoryFeatureModule {
 
     @ContributesAndroidInjector
-    abstract fun mainactivity(): MainActivity
+    abstract fun mainactivity(): CategoryActivity
 
     @Binds
     @IntoMap

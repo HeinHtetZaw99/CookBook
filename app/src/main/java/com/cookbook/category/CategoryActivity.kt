@@ -1,4 +1,4 @@
-package com.cookbook.feature
+package com.cookbook.category
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,10 +7,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.appbase.BaseActivity
 import com.appbase.components.EmptyLoadingViewPod
 import com.cookbook.R
+import com.cookbook.mealsmenu.MenuActivity
 import dagger.android.AndroidInjector
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : BaseActivity<CategoryViewModel>(), EmptyLoadingViewPod.OnRefreshListener {
+class CategoryActivity : BaseActivity<CategoryViewModel>(), EmptyLoadingViewPod.OnRefreshListener , CategoryAdapter.CategoryDelegate{
+    override fun goToMenu(categoryName: String) {
+        startActivity(MenuActivity.newIntent(this,categoryName))
+    }
+
     override fun onRefreshButtonClicked() {
         fetchDataFromNetwork(categoryRv, emptyLoadingViewPod)
     }

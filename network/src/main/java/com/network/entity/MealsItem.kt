@@ -1,7 +1,12 @@
 package com.network.entity
 
+import com.google.gson.annotations.SerializedName
+
 data class MealsItem(
-	val strMealThumb: String? = null,
-	val idMeal: String? = null,
-	val strMeal: String? = null
+	@field:SerializedName("strMealThumb")
+	var strMealThumb: String? = null,
+	@field:SerializedName("idMeal")
+	var idMeal: String? = null,
+	@field:SerializedName("strMeal")
+	var strMeal: String? = null
 )

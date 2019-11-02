@@ -1,6 +1,7 @@
 package com.network.mapper
 
 import com.domain.mapper.UnidirectionalMap
+import com.domain.model.IngredientsVO
 import com.domain.model.MealDetailsVO
 import com.network.entity.MealsDetailItem
 import javax.inject.Inject
@@ -8,6 +9,7 @@ import javax.inject.Inject
 class MealDetailsMapper @Inject constructor() : UnidirectionalMap<MealsDetailItem, MealDetailsVO> {
     override fun map(data: MealsDetailItem): MealDetailsVO {
         val ingredientsWithPortionsList = HashMap<String, String>()
+        val ingredientList = ArrayList<IngredientsVO>()
         if (data.strIngredient1 != null && data.strMeasure1 != null)
             ingredientsWithPortionsList[data.strIngredient1] = data.strMeasure1
 
@@ -68,6 +70,11 @@ class MealDetailsMapper @Inject constructor() : UnidirectionalMap<MealsDetailIte
         if (data.strIngredient20 != null && data.strMeasure20 != null)
             ingredientsWithPortionsList[data.strIngredient20] = data.strMeasure20
 
+        for (entry in ingredientsWithPortionsList) {
+            val ingredients = IngredientsVO(entry.key, entry.value)
+            ingredientList.add(ingredients)
+        }
+
         return MealDetailsVO(
             mealName = data.strMeal,
             mealID = data.idMeal,
@@ -79,6 +86,7 @@ class MealDetailsMapper @Inject constructor() : UnidirectionalMap<MealsDetailIte
             youtubeLink = data.strYoutube,
             source = data.strSource,
             ingredientsWithMeasurement = ingredientsWithPortionsList,
+            ingredientList = ingredientList,
             tags = data.strTags
         )
     }

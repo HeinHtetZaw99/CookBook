@@ -4,10 +4,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.core.app.ComponentActivity
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 
 fun showLogD(text: String) {
     if (BuildConfig.DEBUG)
@@ -54,6 +57,14 @@ fun View.setVisible(isVisible: Boolean) {
     } else {
         this.visibility = View.GONE
     }
+}
+
+//Extension Function for showing image
+fun ImageView.show(imageUrl: String) {
+    Glide.with(this)
+        .load(imageUrl)
+        .apply(RequestOptions.centerCropTransform())
+        .into(this)
 }
 
 fun Array<View>.setVisible(isVisible: Boolean) {
