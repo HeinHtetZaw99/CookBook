@@ -14,7 +14,8 @@ class MealSnapShotEntityMapper @Inject constructor() :
             val mealSnapshotEntity = MealSnapshotEntity(
                 mealID = entry.mealID,
                 mealThumbnail = entry.mealThumbnail,
-                mealName = entry.mealName
+                mealName = entry.mealName,
+                mealCategory = entry.categoryName
             )
             mappedList.add(mealSnapshotEntity)
         }

@@ -17,7 +17,9 @@ class MealDetailsRepositoryImpl @Inject constructor(
         return Single.fromCallable {
             mealNetworkDataSource.getMealDetails(apiKey, mealID)!!
         }.doOnError {
-            mealsDetailsEntityMapper.reverseMap(mealCacheDataSource.getMeal(mealID)!!)
+            val mealData = mealCacheDataSource.getMeal(mealID)
+            if (mealData != null)
+                mealsDetailsEntityMapper.reverseMap(mealData)
         }
     }
 

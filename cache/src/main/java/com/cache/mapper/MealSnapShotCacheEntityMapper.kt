@@ -14,7 +14,8 @@ class MealSnapShotCacheEntityMapper @Inject constructor() :
             val mealSnapshotEntity = MealSnapshotEntity(
                 mealID = entry.mealID,
                 mealThumbnail = entry.mealThumbnail,
-                mealName = entry.mealName
+                mealName = entry.mealName,
+                mealCategory = entry.mealCategory
             )
             mappedList.add(mealSnapshotEntity)
         }
@@ -28,11 +29,11 @@ class MealSnapShotCacheEntityMapper @Inject constructor() :
             val mealSnapshotVO = MealSnapshotCacheEntity(
                 mealID = entry.mealID!!,
                 mealThumbnail = entry.mealThumbnail,
-                mealName = entry.mealName
+                mealName = entry.mealName,
+                mealCategory = entry.mealCategory
             )
             reversedMappedList.add(mealSnapshotVO)
         }
         return reversedMappedList
     }
-
 }

@@ -73,6 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/infoLayout"
+            android:lineSpacingMultiplier="1.5"
             android:layout_marginTop="@dimen/margin_medium"
             android:text="@{data.mealName}"
             android:textColor="@color/grey"
@@ -84,6 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/mealInstructionTv"
+            android:layout_marginBottom="@dimen/margin_large"
             android:layout_marginTop="@dimen/margin_medium"
             android:text="Ingredients"
             android:textColor="@color/colorPrimaryDark"
@@ -98,6 +100,7 @@
             android:layout_height="wrap_content" />
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/videoCardView"
             android:layout_below="@id/ingredientsRv"
             android:layout_width="match_parent"
             android:layout_marginTop="@dimen/margin_medium"
@@ -109,6 +112,28 @@
                 android:layout_height="match_parent"
                 />
         </androidx.cardview.widget.CardView>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_below="@id/videoCardView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:background="@drawable/background_btn">
+
+            <TextView
+                style="@style/BookXLStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:background="@drawable/foreground_btn"
+                android:clickable="true"
+                android:gravity="center"
+                android:paddingStart="@dimen/margin_large"
+                android:paddingEnd="@dimen/margin_large"
+                android:text="Click Me"
+                android:textColor="@color/white" />
+        </LinearLayout>
 
 
     </RelativeLayout>

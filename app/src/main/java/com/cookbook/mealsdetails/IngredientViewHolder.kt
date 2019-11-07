@@ -1,7 +1,7 @@
 package com.cookbook.mealsdetails
 
 import com.appbase.recyclerview.BaseViewHolder
-import com.appbase.show
+import com.appbase.showInFitSize
 import com.appbase.showLogE
 import com.cookbook.databinding.CardviewIngredientsBinding
 import com.domain.model.IngredientsVO
@@ -15,7 +15,7 @@ class IngredientViewHolder(private val binding: CardviewIngredientsBinding) :
             "Images", mData
                 .getThumbnailPic()
         )
-        binding.menuImageView.show(mData.getThumbnailPic())
+        binding.menuImageView.showInFitSize(mData.getThumbnailPic())
     }
 
 }

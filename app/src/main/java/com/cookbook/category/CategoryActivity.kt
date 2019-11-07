@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.appbase.BaseActivity
+import com.appbase.ErrorVO
 import com.appbase.components.EmptyLoadingViewPod
 import com.cookbook.R
 import com.cookbook.mealsmenu.MenuActivity
@@ -63,7 +64,8 @@ class CategoryActivity : BaseActivity<CategoryViewModel>(), EmptyLoadingViewPod.
 
         viewModel.categoryErrorLD.observe(this, Observer {
             showSnackBar(categoryRv, it, "OK")
-            onError()
+            if (it.errorType == ErrorVO.TYPE.ERROR)
+                onError()
         })
 
     }

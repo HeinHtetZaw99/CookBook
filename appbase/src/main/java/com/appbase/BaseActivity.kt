@@ -11,13 +11,11 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.appbase.components.Connectivity
 import com.appbase.components.EmptyLoadingViewPod
 import com.domain.exception.GenericErrorMessageFactory
 import com.google.android.material.snackbar.Snackbar
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
-import dagger.android.support.DaggerAppCompatActivity
 import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 import kotlin.reflect.KClass
@@ -56,7 +54,7 @@ abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity(),
 
 
     fun fetchDataFromNetwork(view: View, emptyLoadingView: EmptyLoadingViewPod?) {
-        supportPostponeEnterTransition()
+        /*supportPostponeEnterTransition()
         if (Connectivity.isConnected(this)) {
             supportStartPostponedEnterTransition()
             loadData()
@@ -69,7 +67,8 @@ abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity(),
                 ErrorVO(getString(R.string.error_msg_no_network), ErrorVO.TYPE.ERROR),
                 getString(R.string.btn_msg_ok)
             )
-        }
+        }*/
+        loadData()
     }
 
 

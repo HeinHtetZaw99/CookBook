@@ -12,7 +12,7 @@ data class MealSnapshotCacheEntity(
     @NonNull
     var mealID: String = "",
 
-    var mealCategory: String = "",
+    var mealCategory: String? = null,
 
     var mealName: String? = null
 )

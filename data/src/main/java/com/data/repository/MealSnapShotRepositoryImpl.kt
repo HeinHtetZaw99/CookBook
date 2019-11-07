@@ -20,7 +20,10 @@ class MealSnapShotRepositoryImpl @Inject constructor(
         return Single.fromCallable {
             mealSnapShotNetworkDataSource.getMealsSnapshot(apiKey, category)
         }.doOnError {
-            mealSnapShotEntityMapper.reverseMap(mealSnapShotCacheDataSource.getMealSnapShotList()!!)
+            val menuList = mealSnapShotCacheDataSource.getMealSnapShotList(category)
+
+            if (menuList != null)
+                mealSnapShotEntityMapper.reverseMap(menuList)
         }
     }
 

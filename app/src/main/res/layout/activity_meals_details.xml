@@ -29,6 +29,7 @@
                 <ImageView
                     android:id="@+id/mealImageView"
                     android:layout_width="match_parent"
+                    android:scaleType="fitXY"
                     android:layout_height="match_parent" />
 
 
@@ -69,7 +70,6 @@
             android:id="@+id/contentMealDetails"
             layout="@layout/content_meals_details"
             android:layout_width="match_parent"
-
             android:layout_height="match_parent" />
     </androidx.core.widget.NestedScrollView>
 

@@ -15,11 +15,14 @@
         android:layout_marginStart="@dimen/margin_medium"
         android:layout_marginTop="@dimen/margin_small"
         android:layout_marginEnd="@dimen/margin_medium"
-        android:layout_marginBottom="@dimen/margin_small"
+        android:layout_marginBottom="2dp"
+        android:paddingBottom="3dp"
         android:orientation="vertical"
+
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="5dp"
-        app:cardElevation="5dp">
+        app:cardElevation="10dp">
+
 
         <ImageView
             android:id="@+id/categoryImageView"
@@ -44,7 +47,7 @@
             android:padding="@dimen/margin_medium"
             android:text="@{categoryData.categoryName}"
             android:textColor="@color/white" />
-
-
     </androidx.cardview.widget.CardView>
+
+
 </layout>

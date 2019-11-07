@@ -15,7 +15,9 @@ class MealsCacheDataSourceImpl @Inject constructor(
     }
 
     override fun getMeal(mealID: String): MealDetailsEntity? {
-        return mapper.map(cookBookDB.mealsDetailsDAO().getMealByID(mealID))
+        val meal = cookBookDB.mealsDetailsDAO().getMealByID(mealID)
+
+        return if (meal != null) mapper.map(meal) else null
     }
 
     override fun clear() {

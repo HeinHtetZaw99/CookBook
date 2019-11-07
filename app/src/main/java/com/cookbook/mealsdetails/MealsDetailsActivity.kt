@@ -7,7 +7,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import com.appbase.BaseActivity
 import com.appbase.setVisible
-import com.appbase.show
+import com.appbase.showInFitSize
 import com.cookbook.R
 import com.domain.model.MealDetailsVO
 import kotlinx.android.synthetic.main.activity_meals_details.*
@@ -36,8 +36,8 @@ class MealsDetailsActivity : BaseActivity<MealsDetailsViewModel>() {
     }
 
 
-    fun setData(data: MealDetailsVO) {
-        mealImageView.show(data.mealThumbnail!!)
+    private fun setData(data: MealDetailsVO) {
+        mealImageView.showInFitSize(data.mealThumbnail!!)
         mealNameTv.text = data.mealName
         mealCategoryTv.text = data.category
         mealAreaTv.text = data.area
@@ -68,8 +68,11 @@ class MealsDetailsActivity : BaseActivity<MealsDetailsViewModel>() {
 
         fetchDataFromNetwork(contentMealDetails, null)
 
+        backBtn.setOnClickListener { onBackPressed() }
+
         viewModel.mealDetailsLD.observe(this, androidx.lifecycle.Observer {
-            setData(it)
+            if (it != null)
+                setData(it)
         })
 
     }

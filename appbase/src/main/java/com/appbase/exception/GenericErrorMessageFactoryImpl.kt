@@ -23,7 +23,6 @@ class GenericErrorMessageFactoryImpl @Inject constructor(
             else -> {
                 throwable.message ?: context.getString(R.string.error_generic)
             }
-
         }
     }
 }

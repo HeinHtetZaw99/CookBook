@@ -67,6 +67,15 @@ fun ImageView.show(imageUrl: String) {
         .into(this)
 }
 
+//Extension Function for showing image
+fun ImageView.showInFitSize(imageUrl: String) {
+    Glide.with(this)
+        .load(imageUrl)
+        .apply(RequestOptions.centerCropTransform())
+        .into(this)
+}
+
+
 fun Array<View>.setVisible(isVisible: Boolean) {
 
     val visibility = if (isVisible) {

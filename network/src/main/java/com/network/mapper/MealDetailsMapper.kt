@@ -10,70 +10,73 @@ class MealDetailsMapper @Inject constructor() : UnidirectionalMap<MealsDetailIte
     override fun map(data: MealsDetailItem): MealDetailsVO {
         val ingredientsWithPortionsList = HashMap<String, String>()
         val ingredientList = ArrayList<IngredientsVO>()
-        if (data.strIngredient1 != null && data.strMeasure1 != null)
-            ingredientsWithPortionsList[data.strIngredient1] = data.strMeasure1
 
-        if (data.strIngredient2 != null && data.strMeasure2 != null)
-            ingredientsWithPortionsList[data.strIngredient2] = data.strMeasure2
+        if (isValidData(data.strIngredient1, data.strMeasure1))
+            ingredientsWithPortionsList[data.strIngredient1!!] = data.strMeasure1!!
 
-        if (data.strIngredient3 != null && data.strMeasure3 != null)
-            ingredientsWithPortionsList[data.strIngredient3] = data.strMeasure3
+        if (isValidData(data.strIngredient2, data.strMeasure2))
+            ingredientsWithPortionsList[data.strIngredient2!!] = data.strMeasure2!!
 
-        if (data.strIngredient4 != null && data.strMeasure4 != null)
-            ingredientsWithPortionsList[data.strIngredient4] = data.strMeasure4
+        if (isValidData(data.strIngredient3, data.strMeasure3))
+            ingredientsWithPortionsList[data.strIngredient3!!] = data.strMeasure3!!
 
-        if (data.strIngredient5 != null && data.strMeasure5 != null)
-            ingredientsWithPortionsList[data.strIngredient5] = data.strMeasure5
+        if (isValidData(data.strIngredient4, data.strMeasure4))
+            ingredientsWithPortionsList[data.strIngredient4!!] = data.strMeasure4!!
 
-        if (data.strIngredient6 != null && data.strMeasure6 != null)
-            ingredientsWithPortionsList[data.strIngredient6] = data.strMeasure6
+        if (isValidData(data.strIngredient5, data.strMeasure5))
+            ingredientsWithPortionsList[data.strIngredient5!!] = data.strMeasure5!!
 
-        if (data.strIngredient7 != null && data.strMeasure7 != null)
-            ingredientsWithPortionsList[data.strIngredient7] = data.strMeasure7
+        if (isValidData(data.strIngredient6, data.strMeasure6))
+            ingredientsWithPortionsList[data.strIngredient6!!] = data.strMeasure6!!
 
-        if (data.strIngredient8 != null && data.strMeasure8 != null)
-            ingredientsWithPortionsList[data.strIngredient8] = data.strMeasure8
+        if (isValidData(data.strIngredient7, data.strMeasure7))
+            ingredientsWithPortionsList[data.strIngredient7!!] = data.strMeasure7!!
 
-        if (data.strIngredient9 != null && data.strMeasure9 != null)
-            ingredientsWithPortionsList[data.strIngredient9] = data.strMeasure9
+        if (isValidData(data.strIngredient8, data.strMeasure8))
+            ingredientsWithPortionsList[data.strIngredient8!!] = data.strMeasure8!!
 
-        if (data.strIngredient10 != null && data.strMeasure10 != null)
-            ingredientsWithPortionsList[data.strIngredient10] = data.strMeasure10
+        if (isValidData(data.strIngredient9, data.strMeasure9))
+            ingredientsWithPortionsList[data.strIngredient9!!] = data.strMeasure9!!
 
-        if (data.strIngredient11 != null && data.strMeasure11 != null)
-            ingredientsWithPortionsList[data.strIngredient11] = data.strMeasure11
+        if (isValidData(data.strIngredient10, data.strMeasure10))
+            ingredientsWithPortionsList[data.strIngredient10!!] = data.strMeasure10!!
 
-        if (data.strIngredient12 != null && data.strMeasure12 != null)
-            ingredientsWithPortionsList[data.strIngredient12] = data.strMeasure12
+        if (isValidData(data.strIngredient11, data.strMeasure11))
+            ingredientsWithPortionsList[data.strIngredient11!!] = data.strMeasure11!!
 
-        if (data.strIngredient13 != null && data.strMeasure13 != null)
-            ingredientsWithPortionsList[data.strIngredient13] = data.strMeasure13
+        if (isValidData(data.strIngredient12, data.strMeasure12))
+            ingredientsWithPortionsList[data.strIngredient12!!] = data.strMeasure12!!
 
-        if (data.strIngredient14 != null && data.strMeasure14 != null)
-            ingredientsWithPortionsList[data.strIngredient14] = data.strMeasure14
+        if (isValidData(data.strIngredient13, data.strMeasure13))
+            ingredientsWithPortionsList[data.strIngredient13!!] = data.strMeasure13!!
 
-        if (data.strIngredient15 != null && data.strMeasure15 != null)
-            ingredientsWithPortionsList[data.strIngredient15] = data.strMeasure15
+        if (isValidData(data.strIngredient14, data.strMeasure14))
+            ingredientsWithPortionsList[data.strIngredient14!!] = data.strMeasure14!!
 
-        if (data.strIngredient16 != null && data.strMeasure16 != null)
-            ingredientsWithPortionsList[data.strIngredient16] = data.strMeasure16
+        if (isValidData(data.strIngredient15, data.strMeasure15))
+            ingredientsWithPortionsList[data.strIngredient15!!] = data.strMeasure15!!
 
-        if (data.strIngredient17 != null && data.strMeasure17 != null)
-            ingredientsWithPortionsList[data.strIngredient17] = data.strMeasure17
+        if (isValidData(data.strIngredient16, data.strMeasure16))
+            ingredientsWithPortionsList[data.strIngredient16!!] = data.strMeasure16!!
 
-        if (data.strIngredient18 != null && data.strMeasure18 != null)
-            ingredientsWithPortionsList[data.strIngredient18] = data.strMeasure18
+        if (isValidData(data.strIngredient17, data.strMeasure17))
+            ingredientsWithPortionsList[data.strIngredient17!!] = data.strMeasure17!!
 
-        if (data.strIngredient19 != null && data.strMeasure19 != null)
-            ingredientsWithPortionsList[data.strIngredient19] = data.strMeasure19
+        if (isValidData(data.strIngredient18, data.strMeasure18))
+            ingredientsWithPortionsList[data.strIngredient18!!] = data.strMeasure18!!
 
-        if (data.strIngredient20 != null && data.strMeasure20 != null)
-            ingredientsWithPortionsList[data.strIngredient20] = data.strMeasure20
+        if (isValidData(data.strIngredient19, data.strMeasure19))
+            ingredientsWithPortionsList[data.strIngredient19!!] = data.strMeasure19!!
+
+        if (isValidData(data.strIngredient20, data.strMeasure20))
+            ingredientsWithPortionsList[data.strIngredient20!!] = data.strMeasure20!!
 
         for (entry in ingredientsWithPortionsList) {
             val ingredients = IngredientsVO(entry.key, entry.value)
             ingredientList.add(ingredients)
         }
+
+
 
         return MealDetailsVO(
             mealName = data.strMeal,
@@ -90,5 +93,8 @@ class MealDetailsMapper @Inject constructor() : UnidirectionalMap<MealsDetailIte
             tags = data.strTags
         )
     }
+
+    private fun isValidData(ingredient: String?, measure: String?) =
+        ingredient != null && measure != null && ingredient != "" && measure != ""
 
 }

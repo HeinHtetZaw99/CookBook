@@ -14,8 +14,8 @@ class MealSnapShotCacheDataSourceImpl @Inject constructor(
         cookBookDB.mealsSnapshotDAO().bulkInsert(mapper.reverseMap(mealSnapShotList))
     }
 
-    override fun getMealSnapShotList(): List<MealSnapshotEntity>? {
-        return mapper.map(cookBookDB.mealsSnapshotDAO().getAllMealsFromMenu())
+    override fun getMealSnapShotList(categoryName: String): List<MealSnapshotEntity>? {
+        return mapper.map(cookBookDB.mealsSnapshotDAO().getMealMenu(categoryName))
     }
 
     override fun clear() {

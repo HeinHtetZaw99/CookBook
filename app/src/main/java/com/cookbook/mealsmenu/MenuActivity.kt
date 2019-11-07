@@ -10,9 +10,7 @@ import com.appbase.ErrorVO
 import com.appbase.components.EmptyLoadingViewPod
 import com.cookbook.R
 import com.cookbook.mealsdetails.MealsDetailsActivity
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_menu.*
-import kotlinx.android.synthetic.main.activity_menu.emptyViewPod
 
 
 class MenuActivity : BaseActivity<MenuViewModel>(), EmptyLoadingViewPod.OnRefreshListener,
@@ -39,7 +37,6 @@ class MenuActivity : BaseActivity<MenuViewModel>(), EmptyLoadingViewPod.OnRefres
             viewModel.getCategoryListData(categoryID)
         else
             onError()
-
     }
 
     override fun onError() {
@@ -65,8 +62,10 @@ class MenuActivity : BaseActivity<MenuViewModel>(), EmptyLoadingViewPod.OnRefres
         })
 
         viewModel.menuErrorLD.observe(this, Observer {
-            showSnackBar(categoryRv, it, "OK")
-            onError()
+            showSnackBar(menuRv, it, "OK")
+
+            if (it.errorType == ErrorVO.TYPE.ERROR)
+                onError()
         })
 
     }
