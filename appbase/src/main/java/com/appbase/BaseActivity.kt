@@ -53,7 +53,7 @@ abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity(),
     }
 
 
-    fun fetchDataFromNetwork(view: View, emptyLoadingView: EmptyLoadingViewPod?) {
+    fun fetchData(view: View, emptyLoadingView: EmptyLoadingViewPod?) {
         /*supportPostponeEnterTransition()
         if (Connectivity.isConnected(this)) {
             supportStartPostponedEnterTransition()

@@ -5,34 +5,29 @@ import com.domain.mapper.BidirectionalMap
 import com.domain.model.CategoryVO
 import javax.inject.Inject
 
+@Suppress("LABEL_NAME_CLASH")
 class CategoryEntityListMapper @Inject constructor() :
     BidirectionalMap<List<CategoryVO>, List<CategoryEntity>> {
     override fun reverseMap(data: List<CategoryEntity>): List<CategoryVO> {
-        val reverseMappedList = ArrayList<CategoryVO>()
-        for (entry in data) {
-            val categoryVO = CategoryVO(
-                categoryName = entry.categoryName,
-                categoryThumbnail = entry.categoryThumbnail,
-                categoryID = entry.categoryID,
-                categoryDescription = entry.categoryDescription
+        return data.map {
+            return@map CategoryVO(
+                categoryName = it.categoryName,
+                categoryThumbnail = it.categoryThumbnail,
+                categoryID = it.categoryID,
+                categoryDescription = it.categoryDescription
             )
-            reverseMappedList.add(categoryVO)
         }
-        return reverseMappedList
     }
 
     override fun map(data: List<CategoryVO>): List<CategoryEntity> {
-        val mappedList = ArrayList<CategoryEntity>()
-        for (entry in data) {
-            val categoryEntity = CategoryEntity(
-                categoryName = entry.categoryName,
-                categoryThumbnail = entry.categoryThumbnail,
-                categoryID = entry.categoryID,
-                categoryDescription = entry.categoryDescription
+        return data.map {
+            return@map CategoryEntity(
+                categoryName = it.categoryName,
+                categoryThumbnail = it.categoryThumbnail,
+                categoryID = it.categoryID,
+                categoryDescription = it.categoryDescription
             )
-            mappedList.add(categoryEntity)
         }
-        return mappedList
     }
 
 

@@ -18,7 +18,7 @@ class CategoryActivity : BaseActivity<CategoryViewModel>(), EmptyLoadingViewPod.
     }
 
     override fun onRefreshButtonClicked() {
-        fetchDataFromNetwork(categoryRv, emptyLoadingViewPod)
+        fetchData(categoryRv, emptyLoadingViewPod)
     }
 
     override val layoutResId: Int

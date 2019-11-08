@@ -1,26 +1,23 @@
 package com.appbase.recyclerview
 
 
-import android.content.Context
-import android.view.LayoutInflater
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import java.util.*
 
 
-abstract class BaseRecyclerAdapter<itemType, viewType : BaseViewHolder<itemType>>(context: Context) :
+abstract class BaseRecyclerAdapter<itemType, viewType : BaseViewHolder<itemType>>() :
     RecyclerView.Adapter<viewType>() {
 
     protected var mData: MutableList<itemType>? = null
 
-    protected var mLayoutInflator: LayoutInflater
 
     val items: List<itemType>
         get() = if (mData == null) ArrayList() else mData!!
 
     init {
         mData = ArrayList()
-        mLayoutInflator = LayoutInflater.from(context)
+
     }
 
 

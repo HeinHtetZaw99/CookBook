@@ -66,7 +66,7 @@ class MealsDetailsActivity : BaseActivity<MealsDetailsViewModel>() {
         ingredientsRv.adapter = mAdapter
         setUpWebSettings()
 
-        fetchDataFromNetwork(contentMealDetails, null)
+        fetchData(contentMealDetails, null)
 
         backBtn.setOnClickListener { onBackPressed() }
 

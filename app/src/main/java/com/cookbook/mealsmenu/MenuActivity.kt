@@ -15,12 +15,17 @@ import kotlinx.android.synthetic.main.activity_menu.*
 
 class MenuActivity : BaseActivity<MenuViewModel>(), EmptyLoadingViewPod.OnRefreshListener,
     MenuAdapter.MenuDelegate {
-    override fun goToMealsDetails(id: String) {
-        startActivity(MealsDetailsActivity.newIntent(this, id))
+    override fun goToMealsDetails(adapterPosition: Int) {
+        startActivity(
+            MealsDetailsActivity.newIntent(
+                this,
+                mAdapter.getItemAt(adapterPosition)?.mealID!!
+            )
+        )
     }
 
     override fun onRefreshButtonClicked() {
-        fetchDataFromNetwork(menuRv, emptyLoadingViewPod)
+        fetchData(menuRv, emptyLoadingViewPod)
     }
 
     override val layoutResId: Int

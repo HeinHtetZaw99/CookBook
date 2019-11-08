@@ -11,18 +11,17 @@ class MenuViewHolder(
     private val delegate: MenuAdapter.MenuDelegate
 ) :
     BaseViewHolder<MealSnapshotVO>(binding.root) {
-    lateinit var mealData: MealSnapshotVO
+
 
     override fun setData(mData: MealSnapshotVO) {
         binding.menuData = mData
-        mealData = mData
         binding.menuImageView.show(mData.mealThumbnail!!)
         binding.menuImageView.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
         super.onClick(v)
-        delegate.goToMealsDetails(mealData.mealID.toString())
+        delegate.goToMealsDetails(adapterPosition)
     }
 
 }

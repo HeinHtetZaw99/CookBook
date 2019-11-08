@@ -103,6 +103,7 @@
             android:id="@+id/videoCardView"
             android:layout_below="@id/ingredientsRv"
             android:layout_width="match_parent"
+            android:visibility="gone"
             android:layout_marginTop="@dimen/margin_medium"
             android:layout_height="200dp">
 
@@ -120,6 +121,7 @@
             android:layout_below="@id/videoCardView"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/margin_medium"
+            android:visibility="gone"
             android:background="@drawable/background_btn">
 
             <TextView
