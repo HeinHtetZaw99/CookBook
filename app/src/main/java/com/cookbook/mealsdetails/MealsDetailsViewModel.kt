@@ -23,7 +23,7 @@ class MealsDetailsViewModel @Inject constructor(
     val errorLD: SingleEventLiveData<ErrorVO> by lazy { SingleEventLiveData<ErrorVO>() }
 
     fun getMealDetails(mealID: String) {
-        getMealDetails.execute(GetMealDetails.Params("1", mealID))
+        getMealDetails.execute(GetMealDetails.Params(mealID))
             .subscribeBy(
                 onSuccess = {
                     mealDetailsLD.postValue(it)

@@ -5,7 +5,6 @@ import io.reactivex.Single
 
 interface MealDetailsRepository {
     fun getMealDetails(
-        apiKey : String ,
         mealID : String
     ) : Single<MealDetailsVO>
 }

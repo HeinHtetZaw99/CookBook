@@ -13,9 +13,9 @@ class CategoryRepositoryImpl @Inject constructor(
     private val categoryCacheDataSource: CategoryCacheDataSource,
     private val categoryEntityListMapper: CategoryEntityListMapper
 ) : CategoryRepository {
-    override fun getMealCategory(apiKey: String): Single<List<CategoryVO>> {
+    override fun getMealCategory(): Single<List<CategoryVO>> {
         return Single.fromCallable {
-            categoryNetworkDataSource.getMealsCategory(apiKey)
+            categoryNetworkDataSource.getMealsCategory()
         }.doOnError {
             categoryEntityListMapper.reverseMap(categoryCacheDataSource.getCategoryList()!!)
         }

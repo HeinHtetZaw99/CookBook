@@ -14,11 +14,10 @@ class GetMealDetails @Inject constructor(
     threadExecutor: ThreadExecutor
 ) : SingleUseCase<MealDetailsVO, GetMealDetails.Params>(postExecutionThread, threadExecutor) {
     override fun provideSingle(params: Params): Single<MealDetailsVO> {
-        return mealDetailsRepository.getMealDetails(apiKey = params.apiKey, mealID = params.mealID)
+        return mealDetailsRepository.getMealDetails(mealID = params.mealID)
     }
 
     data class Params(
-        val apiKey: String,
         val mealID: String
     )
 }

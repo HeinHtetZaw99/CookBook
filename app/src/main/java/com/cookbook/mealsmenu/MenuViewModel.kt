@@ -24,7 +24,7 @@ class MenuViewModel @Inject constructor(
     val menuErrorLD = SingleEventLiveData<ErrorVO>()
 
     fun getCategoryListData(categoryName: String) {
-        getMealSnapShots.execute(GetMealSnapShots.Params("1", categoryName))
+        getMealSnapShots.execute(GetMealSnapShots.Params(categoryName))
             .subscribeBy(
                 onSuccess = {
                     menuLD.postValue(it)

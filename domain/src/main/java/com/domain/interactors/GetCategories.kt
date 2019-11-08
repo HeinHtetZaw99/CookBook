@@ -14,10 +14,10 @@ class GetCategories @Inject constructor(
     threadExecutor: ThreadExecutor
 ) : SingleUseCase<List<CategoryVO>, GetCategories.Params>(postExecutionThread, threadExecutor) {
     override fun provideSingle(params: Params): Single<List<CategoryVO>> {
-        return categoryRepository.getMealCategory(apiKey = params.apiKey)
+        return categoryRepository.getMealCategory()
     }
 
     data class Params(
-        val apiKey: String
+        val dummy: String
     )
 }

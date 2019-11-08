@@ -7,13 +7,15 @@ import com.network.entity.MealsItem
 import com.network.mapper.MealSnapShotMapper
 import com.network.service.RecipeService
 import javax.inject.Inject
+import javax.inject.Named
 
 @Suppress("UNCHECKED_CAST")
 class MealSnapShotNetworkDataSourceImpl @Inject constructor(
     private val recipeService: RecipeService,
-    private val mealSnapShotMapper: MealSnapShotMapper
+    private val mealSnapShotMapper: MealSnapShotMapper,
+    @Named("api_key") private val apiKey: String
 ) : MealSnapShotNetworkDataSource {
-    override fun getMealsSnapshot(apiKey: String, categoryName: String): List<MealSnapshotVO> {
+    override fun getMealsSnapshot(categoryName: String): List<MealSnapshotVO> {
         return try {
             mealSnapShotMapper.map(
                 (recipeService.getFilteredListByCategory(

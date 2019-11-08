@@ -14,11 +14,10 @@ class MealSnapShotRepositoryImpl @Inject constructor(
     private val mealSnapShotEntityMapper: MealSnapShotEntityMapper
 ) : MealSnapShotRepository {
     override fun getMealSnapShotsByCategory(
-        apiKey: String,
         category: String
     ): Single<List<MealSnapshotVO>> {
         return Single.fromCallable {
-            mealSnapShotNetworkDataSource.getMealsSnapshot(apiKey, category)
+            mealSnapShotNetworkDataSource.getMealsSnapshot(category)
         }.doOnError {
             val menuList = mealSnapShotCacheDataSource.getMealSnapShotList(category)
 

@@ -6,12 +6,14 @@ import com.domain.model.MealDetailsVO
 import com.network.mapper.MealDetailsMapper
 import com.network.service.RecipeService
 import javax.inject.Inject
+import javax.inject.Named
 
 class MealNetworkDataSourceImpl @Inject constructor(
     private val recipeService: RecipeService,
-    private val mealMapper: MealDetailsMapper
+    private val mealMapper: MealDetailsMapper,
+    @Named("api_key") private val apiKey: String
 ) : MealNetworkDatasource {
-    override fun getMealDetails(apiKey: String, mealID: String): MealDetailsVO? {
+    override fun getMealDetails(mealID: String): MealDetailsVO? {
         return try {
             mealMapper.map(
                 recipeService.getMealDetails(apiKey, mealID).execute().body()!!.meals?.get(0)!!

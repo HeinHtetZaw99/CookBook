@@ -20,6 +20,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module(includes = [NetworkModule.Providers::class])
@@ -62,6 +63,12 @@ abstract class NetworkModule {
                 .cache(null)
             return builder.build()
         }
+
+        @JvmStatic
+        @Provides
+        @Singleton
+        @Named("api_key")
+        fun providesApiKey() = BuildConfig.API_KEY
 
         @JvmStatic
         @Provides

@@ -13,9 +13,9 @@ class MealDetailsRepositoryImpl @Inject constructor(
     private val mealCacheDataSource: MealCacheDataSource,
     private val mealsDetailsEntityMapper: MealsDetailsEntityMapper
 ) : MealDetailsRepository {
-    override fun getMealDetails(apiKey: String, mealID: String): Single<MealDetailsVO> {
+    override fun getMealDetails(mealID: String): Single<MealDetailsVO> {
         return Single.fromCallable {
-            mealNetworkDataSource.getMealDetails(apiKey, mealID)!!
+            mealNetworkDataSource.getMealDetails(mealID)!!
         }.doOnError {
             val mealData = mealCacheDataSource.getMeal(mealID)
             if (mealData != null)

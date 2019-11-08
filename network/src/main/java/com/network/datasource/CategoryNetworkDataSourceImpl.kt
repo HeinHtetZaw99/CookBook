@@ -7,13 +7,15 @@ import com.network.entity.CategoriesItem
 import com.network.mapper.CategoryMapper
 import com.network.service.RecipeService
 import javax.inject.Inject
+import javax.inject.Named
 
 @Suppress("UNCHECKED_CAST")
 class CategoryNetworkDataSourceImpl @Inject constructor(
     private val recipeService: RecipeService,
-    private val categoryMapper: CategoryMapper
+    private val categoryMapper: CategoryMapper,
+    @Named("api_key") private val apiKey: String
 ) : CategoryNetworkDataSource {
-    override fun getMealsCategory(apiKey: String): List<CategoryVO> {
+    override fun getMealsCategory(): List<CategoryVO> {
         return try {
             categoryMapper.map(
                 (recipeService.getMealsCategory(apiKey).execute().body()!!.categories as List<CategoriesItem>?)!!

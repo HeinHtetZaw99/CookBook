@@ -18,13 +18,11 @@ class GetMealSnapShots @Inject constructor(
 ) {
     override fun provideSingle(params: Params): Single<List<MealSnapshotVO>> {
         return mealSnapShotRepository.getMealSnapShotsByCategory(
-            apiKey = params.apiKey,
             category = params.categoryName
         )
     }
 
     data class Params(
-        val apiKey: String,
         val categoryName: String
     )
 }
